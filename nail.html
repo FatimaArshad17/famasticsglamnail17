@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Famatics Glam Nail</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <style>
+    .product-img {
+      height: 200px;
+      object-fit: cover;
+    }
+  
+    /* Footer Start */
+    footer {
+      width: 100%;
+      background-color: #d892cf;
+      padding: 20px 0;
+      color: #080707;
+    }
+    .socail-links {
+      text-align: center;
+    }
+    .socail-links i {
+      margin: 0 5px;
+      font-size: 24px;
+      color: #080707;
+      transition: all 0.3s ease;
+    }
+    .socail-links i:hover {
+      color: #0f0e0e;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .footer-bottom p {
+      font-size: 14px;
+    }
+    .footer-bottom a {
+      color: #080707;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    /* Footer End */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: -250px;
+      z-index: 1000;
+      background-color: #100f10;
+      padding-top: 50px;
+      width: 250px;
+      transition: all 0.3s ease-in-out;
+    }
+    .sidebar.show {
+      left: 0;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      padding: 10px;
+      color: #080505;
+    }
+    .sidebar ul li:hover {
+      background-color:rgb(12, 9, 12);
+    }
+    .navbar {
+        background-color: #d892cf; /* Change this to your desired color */
+    }
+    .navbar-brand {
+  color: rgb(11, 1, 1); /* Change navigation bar logo color to black */
+    }
+
+  .btn-outline-light {
+  color: black; /* Change "Add to Cart" button color to black */
+   }
+
+    .navbar-nav .nav-link {
+      color: rgb(223, 143, 228);
+    }
+    .navbar-toggler {
+      color: #d892cf !important;
+    }
+    
+  .navbar-brand {
+    color: black; /* Change navigation bar logo color to black */
+  }
+
+  .btn-outline-light {
+    color: black; /* Change "Add to Cart" button color to black */
+    }
+
+  .sidebar-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color:#120e12;
+      cursor: pointer;
+    }
+    .carousel-item img {
+      height: 500px; /* Set the desired height */
+      object-fit: cover; /* Maintain aspect ratio */
+    }
+/* Featured Products Section Styles */
+.featured-products {
+  background-color: #e5bfdd; /* Background color similar to your website */
+}
+
+.featured-products h2 {
+  color: #4c2150; /* Text color similar to your website */
+}
+
+.featured-products .card {
+  border-radius: 10px;
+  border: 1px solid #4c2150; /* Border color similar to your website */
+}
+
+.featured-products .card-img-top {
+  border-radius: 10px 10px 0 0; /* Rounded corners for top of image */
+}
+
+.featured-products .card-title {
+  color: #4c2150; /* Text color similar to your website */
+}
+
+.featured-products .card-text {
+  color: #4c2150; /* Text color similar to your website */
+}
+
+.featured-products .price {
+  color: #333; /* Price color similar to your website */
+  font-size: 1.2rem; /* Adjust font size as needed */
+  margin-bottom: 10px;
+}
+
+.featured-products .btn {
+  width: 100%;
+}
+
+.featured-products .add-to-cart {
+  background-color: #4c2150; /* Button color similar to your website */
+  border-color: #4c2150; /* Button border color similar to your website */
+}
+
+.featured-products .add-to-cart:hover {
+  background-color: #4c2150; /* Darker button color on hover */
+}
+
+.featured-products .favorite-btn {
+  border: none;
+  background-color: transparent;
+  color: #4e464d; /* Color for heart icon */
+  font-size: 24px; /* Adjust size of heart icon */
+  cursor: pointer;
+}
+
+.featured-products .favorite-btn:hover {
+  color: #898181; /* Change color on hover */
+}
+
+/* Product Categories Section Styles */
+.product-categories {
+  background-color: #e5bfdd; /* Background color similar to your website */
+}
+
+.product-categories h2 {
+  color:#4c2150; /* Text color similar to your website */
+}
+
+.product-categories .category-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for box */
+}
+
+.product-categories .category-box img {
+  transition: transform 0.3s ease; /* Smooth transition for image hover */
+}
+
+.product-categories .category-box:hover img {
+  transform: scale(1.1); /* Increase image size on hover */
+}
+
+.product-categories .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay color */
+  color: #fff; /* Text color for overlay */
+  padding: 20px;
+  text-align: center;
+  opacity: 0; /* Hide overlay by default */
+  transition: opacity 0.3s ease; /* Fade in effect */
+}
+
+.product-categories .category-box:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.product-categories .overlay h3 {
+  margin-bottom: 20px;
+}
+
+.product-categories .btn-primary {
+  background-color: #5d478b; /* Button color similar to your website */
+  border-color: #5d478b; /* Button border color similar to your website */
+}
+
+.product-categories .btn-primary:hover {
+  background-color: #48356e; /* Darker button color on hover */
+}
+
+.carousel-item .btn-primary {
+  background-color: #5d478b; /* Button color similar to your website */
+  border-color: #5d478b; /* Button border color similar to your website */
+}
+
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <ul>
+    <li><a href="#Nail Polish">Nail Polish</a></li>
+    <li><a href="Nail Stickers.html">Nail Stickers</a></li>
+    <li><a href="Nail Art Tools.html">Nail Art Tools</a></li>
+    <li><a href="Mail Polish Marker.html">Nail Polish Marker/a></li>
+    <li><a href="Contact Us.html">Contact Us</a></li>
+  </ul>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+  <div class="container">
+    <span class="sidebar-icon" id="sidebarIcon">
+      <i class="fas fa-bars fa-lg"></i>
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#" style="color: black;">Famastics Glam Nail</a>
+    <form class="form-inline my-2 my-lg-0 mr-2">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <a href="#" class="btn btn-outline-light mr-2">
+      <i class="fas fa-shopping-cart"></i> Add to Cart
+    </a>
+  </div>
+</nav>
+
+
+<!-- Carousel -->
+<section class="carousel-section py-5">
+  <div class="container">
+    <div id="productCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video class="d-block w-100" controls>
+            <source src="https://media.istockphoto.com/id/1349939328/video/female-take-pink-nail-polish-nail-varnish-set-woman-take-pink-nail-polish-bottle.mp4?s=mp4-640x640-is&k=20&c=rc7rM40t1DOWUQFb2MPiv9IJjNG0eQf810zpoGsa_D4=" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="carousel-caption">
+            <h3>Welcome to Famastics Glam Nail</h3>
+            <p>If the color fits, wear it!</p>
+            <a href="#" class="btn btn-primary">Shop Now</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.template.net/wp-content/uploads/2015/03/Nail-Designs.jpg" class="d-block w-100" alt="Product 2">
+         <div class="carousel-caption">
+            <h3> “Keep calm & paint your nails.” </h3>
+            <a href="#" class="btn btn-primary">Shop Now</a>
+            
+          </div>
+
+
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.howtobearedhead.com/wp-content/uploads/2023/03/redhead-nail-colors-spring-1280x850.png" class="d-block w-100" alt="Product 3">
+           <div class="carousel-caption">
+            <h3> “ Happiness is freshly painted nails” </h3>
+            <a href="#" class="btn btn-primary">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- Product Categories Section -->
+<section class="product-categories py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Product Category Boxes -->
+      <div class="col-md-3 mb-4">
+        <div class="category-box">
+          <img src="https://i5.walmartimages.com/seo/Nail-Polish-Set-of-10-Random-All-Different-Colors-No-Repeats_571e79cb-e64e-409f-8675-fe5c33ed85ca.4cb20b92e2fa30c0f9da500626ac68a2.jpeg?odnHeight=640&odnWidth=640&odnBg=FFFFFF" class="img-fluid" alt="Nail Polish">
+          <div class="overlay">
+            <h3> Nail Polish </h3>
+            <a href="#" class="btn btn-primary"> Shop Now </a>
+            <li class="nav-item">
+            
+            </li>
+
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more product categories -->
+       <!-- Product Category Boxes -->
+       <div class="col-md-3 mb-4">
+        <div class="category-box">
+          <img src="https://m.media-amazon.com/images/I/714Xe8URomL._AC_SL1200_.jpg" class="img-fluid" alt="Nail Stickers">
+          <div class="overlay"> 
+            <h3> Nail Stickers </h3>
+            <a href="#" class="btn btn-primary"> Shop Now </a>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more product categories -->
+       <!-- Product Category Boxes -->
+       <div class="col-md-3 mb-4">
+        <div class="category-box">
+          <img src="https://m.media-amazon.com/images/I/81XLNNyzu6L._AC_SL1500_.jpg" class="img-fluid" alt="Nail Art Tools ">
+          <div class="overlay">
+            <h3> Nail Art Tools </h3>
+            <a href="#" class="btn btn-primary"> Shop Now </a>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more product categories -->
+       <!-- Product Category Boxes -->
+       <div class="col-md-3 mb-4">
+        <div class="category-box">
+          <img src="https://m.media-amazon.com/images/I/71Grao8rmZL._AC_SL1500_.jpg" class="img-fluid" alt="Nail Polish Marker">
+          <div class="overlay">
+            <h3>Nail Polish markers</h3>
+            <a href="#" class="btn btn-primary">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more product categories -->
+    </div>
+  </div>
+</section>
+<!-- Nail Polishes -->
+<section class="featured-products py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Nail Polish</h2>
+    <div class="row">
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Pastel Nail Polish - 313</h5>
+            <p class="price">Rs.799</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more products -->
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://zedstorelb.com/cdn/shop/files/Pastel-cosmetics-uk-nail-polish_274_1000x_4c459e1c-83e1-42f0-b819-289ebee1c1f4.webp?v=1686213338&width=800" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Pastel nail polish - 274</h5>
+            <p class="price">Rs.799</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+          
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://pastelpk.com/wp-content/uploads/2020/12/236d-1.jpg" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">PASTEL Nail Polish - 236</h5>
+            <p class="price">Rs.799</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    
+    </div>
+  </div>
+</section>
+<!-- Nail Stickers -->
+<section class="featured-products py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Nail Stickers</h2>
+    <div class="row">
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwQYdk9PrZvNXDqAi-smqVqBL8kw2aWQT5uA&usqp=CAU" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">5D Butterfly Nail Stickers</h5>
+            <p class="price">Rs.550</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+         
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more products -->
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://www.thebluecat.uk/wp-content/uploads/2021/11/STZ-CS070.jpg" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title"> Swirl Wave Nail Stickers</h5>
+            <p class="price">Rs.750</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRABMEvlszzPdStyfiQy1RROC_sptry2Yb_p19uSfRO4aLxGns6q33DJVTIo4hMDm0qZlc&usqp=CAU" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title"> Blue & White Nail Stickers</h5>
+            <p class="price">Rs.600</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    
+    </div>
+  </div>
+</section>
+<!-- Nail Art Markers-->
+<section class="featured-products py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Nail Art Tools <i class="fas fa-map-marker-slash    "></i></h2>
+    <div class="row">
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJtF5eaEm2-XjnZitPZ_FbeS6sDF-lgmtuMQAIgLrJTS8bi3gCVPYbQ5DEgJHXy9YxPKI&usqp=CAU" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Dotting Tool</h5>
+          
+            <p class="price">Rs.450</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more products -->
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://i5.walmartimages.com/asr/c918ffcc-40a6-480d-8a05-aa433c7fd0fc.47b757a33f553273a7fff8bde5fa303c.jpeg?odnHeight=320&odnWidth=320&odnBg=FFFFFF" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Stamper & Scraper</h5>
+            <p class="price">RS.1500</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO3_7VfOL6Zci9pryocs90TGhej_W1_grJI1-IqjXSuM15eCKiJHs7XekQXlLWUn_-cgE&usqp=CAU" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Nail Art Brushes</h5>
+            <p class="price">Rs.950</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Nail Polish Markers -->
+<section class="featured-products py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Nail Polish Markers</h2>
+    <div class="row">
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://m.media-amazon.com/images/I/71CBgbUkYjL._SL1500_.jpg" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Nail Art Pen Magenta 390</h5>
+           
+            <p class="price">Rs.2000</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat for more products -->
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://m.media-amazon.com/images/I/61lWV28IGJL._SL1500_.jpg" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Nail Art Pens Yellow 320</h5>
+            <p class="price">Rs.2000</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Cards -->
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="https://m.media-amazon.com/images/I/51dlPgYE-RL._SL1500_.jpg" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Nail Art Pens Turquoise 450<h5>
+            <p class="price">Rs.2000</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <button class="btn btn-primary add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    
+    </div>
+  </div>
+</section>
+<!-- Contact Us Section -->
+<section class="contact-section py-4" style="background-color: #ecbae7;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2 style="color: #070707;">Contact Us</h2>
+        <p class="mb-3" style="color: #000000;">We'd love to hear from you! Drop us a message and we'll get back to you as soon as possible.</p>
+        <form>
+          <div class="form-group">
+            <label for="name" style="color: #030303;">Your Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email" style="color: #080707;">Your Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="message" style="color: #080707;">Message:</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+      <div class="col-lg-6">
+        <h2 style="color: #000000;">Our Location</h2>
+        <p class="mb-3" style="color: #080707;">Find us at:</p>
+        <address style="color: #080707;">
+          123 Nail Street<br>
+          Nailtown, NV 12345<br>
+          Pakistan
+        </address>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.389222916524!2d-73.98643258459334!3d40.7306109884819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a5891c6e79%3A0x5dd2c61a7cf48285!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1634162609931!5m2!1sen!2s" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" class="embed-responsive-item"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer Start -->
+<footer>
+  <div class="container">
+    <div class="socail-links">
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-pinterest"></i></a>
+    </div>
+    <div class="footer-bottom">
+      <hr class="hr">
+      <p>  We believe that beauty products should be inclusive and designed for all to enjoy– </p>
+
+      <p>Designed By <a href="#">Famastics Glam Nail</a></p>
+      <div class="copyright">
+        <p>&copy; Copyright <strong>Famastics Glam Nail</strong>. All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer End -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#sidebarIcon').click(function(){
+      $('.sidebar').toggleClass('show');
+    });
+  });
+</script>
+</body>
+</html>
